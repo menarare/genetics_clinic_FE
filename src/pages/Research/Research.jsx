@@ -28,7 +28,7 @@ const Research = () => {
         const loadMetrics = async () => {
             try {
                 setMetricsLoading(true);
-                const res = await fetch("/api/pubmed-metrics");
+                const res = await fetch("/api/scholar-metrics");
                 const json = await res.json();
                 if (res.ok && json) setMetrics(json);
             } catch (e) {
@@ -123,22 +123,19 @@ const Research = () => {
                 ) : metrics ? (
                     <div className="metrics-grid">
                         <div className="metric">
-                            <div className="metric-value">{metrics.publications}</div>
+                            <div className="metric-value">{metrics?.publications ?? 0}</div>
                             <div className="metric-label">Publications</div>
                         </div>
                         <div className="metric">
-                            {/* <div className="metric-value">{metrics.totalCitations}</div> */}
-                            <div className="metric-value">7900</div>
+                            <div className="metric-value">{metrics?.totalCitations ?? 0}</div>
                             <div className="metric-label">Citations</div>
                         </div>
                         <div className="metric">
-                            {/* <div className="metric-value">{metrics.hIndex}</div> */}
-                            <div className="metric-value">48</div>
+                            <div className="metric-value">{metrics?.hIndex ?? 0}</div>
                             <div className="metric-label">h-index</div>
                         </div>
                         <div className="metric">
-                            {/* <div className="metric-value">{metrics.i10Index}</div> */}
-                            <div className="metric-value">104</div>
+                            <div className="metric-value">{metrics?.i10Index ?? 0}</div>
                             <div className="metric-label">i10-index</div>
                         </div>
                     </div>
