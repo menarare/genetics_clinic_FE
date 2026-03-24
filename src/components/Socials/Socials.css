@@ -126,7 +126,7 @@
 }
 /* Tooltip for WhatsApp button */
 .whatsapp-btn {
-    background-color: #25D366;
+    background-color: #772D8B;
     position: relative;
 }
 
@@ -136,7 +136,7 @@
     right: 70px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #772D8B;
+    background-color: 772D8B;
     color: #fff;
     padding: 4px 8px;
     font-size: 0.75rem;
