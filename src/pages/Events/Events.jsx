@@ -75,6 +75,24 @@ const Events = () => {
         });
     };
 
+    const components = {
+        marks: {
+            link: ({ value, children }) => {
+                const target = value?.href?.startsWith('http') ? '_blank' : '_self';
+
+                return (
+                    <a
+                    href={value?.href}
+                    target={target}
+                    rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+                    >
+                    {children}
+                    </a>
+                );
+            },
+        },
+    };
+
     if (isLoading) return <Loader />;
 
     return (
@@ -190,7 +208,7 @@ const Events = () => {
                                 {event.body && (
                                     <div className="event-description-wrapper">
                                         <div className="event-description collapsed">
-                                            <PortableText value={event.body} />
+                                            <PortableText value={event.body} components={components} />
                                         </div>
 
                                         <button
@@ -257,7 +275,7 @@ const Events = () => {
                         </button>
 
                         <div className="text-modal-body">
-                            <PortableText value={textModal} />
+                            <PortableText value={textModal} components={components} />
                         </div>
                     </div>
                 </div>
